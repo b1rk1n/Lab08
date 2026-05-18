@@ -62,21 +62,20 @@ namespace Lab08
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            Planet planet = new Planet();
-            fPlanet fp = new fPlanet(ref planet);
+            fPlanet fp = new fPlanet(new Planet());
             if (fp.ShowDialog() == DialogResult.OK)
             {
-                bindSrcPlanets.Add(planet);
+                bindSrcPlanets.Add(fp.Result);
             }
         }
 
         private void btnEdit_Click(object sender, EventArgs e)
         {
             Planet planet = (Planet)bindSrcPlanets.List[bindSrcPlanets.Position];
-            fPlanet fp = new fPlanet(ref planet);
+            fPlanet fp = new fPlanet(planet);
             if (fp.ShowDialog() == DialogResult.OK)
             {
-                bindSrcPlanets.List[bindSrcPlanets.Position] = planet;
+                bindSrcPlanets.ResetCurrentItem();
             }
         }
 
@@ -105,6 +104,11 @@ namespace Lab08
             {
                 Application.Exit();
             }
+        }
+
+        private void gvPlanets_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }

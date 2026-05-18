@@ -61,7 +61,6 @@
             this.toolStrip1.Size = new System.Drawing.Size(800, 27);
             this.toolStrip1.TabIndex = 0;
             this.toolStrip1.Text = "toolStrip1";
-            this.toolStrip1.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.toolStrip1_ItemClicked);
             // 
             // btnAdd
             // 
@@ -138,7 +137,6 @@
             this.gvPlanets.RowTemplate.Height = 24;
             this.gvPlanets.Size = new System.Drawing.Size(800, 423);
             this.gvPlanets.TabIndex = 1;
-            this.gvPlanets.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gvPlanets_CellContentClick);
             // 
             // fMain
             // 

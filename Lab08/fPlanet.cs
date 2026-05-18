@@ -1,41 +1,48 @@
 ﻿using System;
 using System.Windows.Forms;
-using System.Xml.Linq;
 
 namespace Lab08
 {
     public partial class fPlanet : Form
     {
-        private Planet planet;
+        public Planet Result { get; private set; }
 
-        public fPlanet(ref Planet planet)
+        public fPlanet(Planet planet)
         {
             InitializeComponent();
-            this.planet = planet;
+            Result = new Planet();
+            Result.Name = planet.Name;
+            Result.StarSystem = planet.StarSystem;
+            Result.DiameterKm = planet.DiameterKm;
+            Result.DistanceFromSunMln = planet.DistanceFromSunMln;
+            Result.MassKg = planet.MassKg;
+            Result.NumberOfMoons = planet.NumberOfMoons;
+            Result.HasRings = planet.HasRings;
+            Result.HasAtmosphere = planet.HasAtmosphere;
         }
 
         private void fPlanet_Load(object sender, EventArgs e)
         {
-            txtName.Text = planet.Name;
-            txtStarSystem.Text = planet.StarSystem;
-            txtDiameter.Text = planet.DiameterKm.ToString();
-            txtDistance.Text = planet.DistanceFromSunMln.ToString();
-            txtMass.Text = planet.MassKg.ToString();
-            txtMoons.Text = planet.NumberOfMoons.ToString();
-            chkRings.Checked = planet.HasRings;
-            chkAtmosphere.Checked = planet.HasAtmosphere;
+            txtName.Text = Result.Name;
+            txtStarSystem.Text = Result.StarSystem;
+            txtDiameter.Text = Result.DiameterKm.ToString();
+            txtDistance.Text = Result.DistanceFromSunMln.ToString();
+            txtMass.Text = Result.MassKg.ToString();
+            txtMoons.Text = Result.NumberOfMoons.ToString();
+            chkRings.Checked = Result.HasRings;
+            chkAtmosphere.Checked = Result.HasAtmosphere;
         }
 
         private void btnOK_Click(object sender, EventArgs e)
         {
-            planet.Name = txtName.Text;
-            planet.StarSystem = txtStarSystem.Text;
-            planet.DiameterKm = double.Parse(txtDiameter.Text);
-            planet.DistanceFromSunMln = double.Parse(txtDistance.Text);
-            planet.MassKg = double.Parse(txtMass.Text);
-            planet.NumberOfMoons = int.Parse(txtMoons.Text);
-            planet.HasRings = chkRings.Checked;
-            planet.HasAtmosphere = chkAtmosphere.Checked;
+            Result.Name = txtName.Text;
+            Result.StarSystem = txtStarSystem.Text;
+            Result.DiameterKm = double.Parse(txtDiameter.Text);
+            Result.DistanceFromSunMln = double.Parse(txtDistance.Text);
+            Result.MassKg = double.Parse(txtMass.Text);
+            Result.NumberOfMoons = int.Parse(txtMoons.Text);
+            Result.HasRings = chkRings.Checked;
+            Result.HasAtmosphere = chkAtmosphere.Checked;
             this.DialogResult = DialogResult.OK;
         }
 
